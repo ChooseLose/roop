@@ -47,7 +47,8 @@ local function newInstance(class)
     instances[id] = ins
     
     local returning = {__id = id, __address = tostring(classCopy)}
-    ins.referal = returning
+    --ins.referal = returning
+    -- ^ That line of code will make the returning instance never be garbage collected
     
     setmetatable(returning, instance)
     
