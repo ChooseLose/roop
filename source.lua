@@ -43,13 +43,24 @@ local function newInstance(class)
     local classCopy = copy(class)
     local id = randomString(5)
     
-    instances[id] = {instance = classCopy, class = classCopy}
+    local ins = {instance = classCopy, class = classCopy}
+    instances[id] = ins
     
     local returning = {__id = id, __address = tostring(classCopy)}
+    ins.referal = returning
     
     setmetatable(returning, instance)
     
     return returning
+end
+
+    -- Destroy instance
+local function destroyInstance(instance)
+    instances[instance.__id] = nil
+    
+    setmetatable(instance, nil)
+    instance.__id = nil
+    instance.__address = nil
 end
 
 --
