@@ -62,6 +62,10 @@ local function destroyInstance(instance)
     instance.__id = nil
     instance.__address = nil
 end
+        -- Make so when an instance gets garbage collected it gets totally detected
+function instance:__gc()
+    destroyInstance(self)
+end
 
 --
 local class = {
