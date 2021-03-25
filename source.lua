@@ -94,3 +94,9 @@ local function newClass(name, tbl)
     
     return tbl
 end
+
+-- END OF CODE
+return {
+    class = newClass,
+    destroy = destroyInstance,
+}
