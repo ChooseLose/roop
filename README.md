@@ -1,14 +1,17 @@
 # documentation
+```lua
+oop = require("roop.lua")
+```
 
 ### creating a class
 ```lua
-myClass = class("ClassName", {})
+myClass = oop.class("ClassName", {})
 -- second argument is optional
 ```
 
 ### creating an instance of a class
 ```lua
-Person = class("Person")
+Person = oop.class("Person")
 
 function Person:walk()
   print("Walking!")
@@ -19,7 +22,7 @@ Me = Person()
 
 #### adding constructor to a class
 ```lua
-Person = class("Person", {
+Person = oop.class("Person", {
   name = nil, -- string
 })
 
@@ -36,3 +39,25 @@ print(Me.name) --> john doe
 
 Me:walk()
 ```
+
+#### destroying an instance
+```lua
+basicClass = oop.class("Class")
+
+basicInstance = basicClass()
+
+oop.destroy(basicInstance)
+basicInstance = nil
+```
+
+or
+
+```lua
+basicClass = oop.class("Class")
+
+basicInstance = basicClass()
+
+basicInstance = nil
+```
+
+i recommend first way
