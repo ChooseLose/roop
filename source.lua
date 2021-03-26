@@ -4,8 +4,8 @@ local function copy(tbl)
     
     for i, v in pairs(tbl) do
         copy[
-            type(i) == "table" and table.copy(i) or i
-        ] = type(v) == "table" and table.copy(v) or v
+            type(i) == "table" and copy(i) or i
+        ] = type(v) == "table" and copy(v) or v
     end
     
     return copy
@@ -43,7 +43,7 @@ local function newInstance(class)
     local classCopy = copy(class)
     local id = randomString(5)
     
-    local ins = {instance = classCopy, class = classCopy}
+    local ins = {instance = classCopy, class = class}
     instances[id] = ins
     
     local returning = {__id = id, __address = tostring(classCopy)}
