@@ -99,4 +99,5 @@ end
 return {
     class = newClass,
     destroy = destroyInstance,
+    copy = copy,
 }
