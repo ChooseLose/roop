@@ -50,14 +50,16 @@ oop.destroy(basicInstance)
 basicInstance = nil
 ```
 
-or
+### misc functions
+#### oop.copy
+copies a table
 
 ```lua
-basicClass = oop.class("Class")
+myTbl = {}
+myCopy = oop.copy(myTbl)
 
-basicInstance = basicClass()
-
-basicInstance = nil
+myCopy.Hello = 3
+print( myTbl.Hello ) --> nil
 ```
 
-i recommend first way
+
